@@ -17,6 +17,9 @@ def shared_scalar(val=0., dtype=theano.config.floatX, name=None):
 
 def shared_ones(shape, dtype=theano.config.floatX, name=None):
     return sharedX(np.ones(shape), dtype=dtype, name=name)
+    
+def shared_identity(dim, dtype=theano.config.floatX, name=None):
+    return sharedX(np.zeros(dim), dtype=dtype, name=name)
 
 def alloc_zeros_matrix(*dims):
     return T.alloc(np.cast[theano.config.floatX](0.), *dims)
