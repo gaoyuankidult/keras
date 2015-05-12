@@ -3,7 +3,7 @@ import theano
 import theano.tensor as T
 import numpy as np
 
-from .utils.theano_utils import sharedX, shared_zeros
+from .utils.theano_utils import sharedX, shared_zeros, shared_identity
 
 def get_fans(shape):
     fan_in = shape[0] if len(shape) == 2 else np.prod(shape[1:])
@@ -61,7 +61,9 @@ def orthogonal(shape, scale=1.1):
 
 def zero(shape):
     return shared_zeros(shape)
-
+    
+def identity(dim):
+    return shared_identity(dim)
 
 from .utils.generic_utils import get_from_module
 def get(identifier):
